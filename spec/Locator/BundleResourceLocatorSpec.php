@@ -40,7 +40,7 @@ final class BundleResourceLocatorSpec extends ObjectBehavior
         BundleInterface $childBundle,
         BundleInterface $parentBundle
     ): void {
-        $kernel->getBundle('ParentBundle', false)->willReturn([$childBundle, $parentBundle]);
+        $kernel->getBundle('ParentBundle')->willReturn([$childBundle, $parentBundle]);
 
         $childBundle->getName()->willReturn('ChildBundle');
         $parentBundle->getName()->willReturn('ParentBundle');
@@ -59,7 +59,7 @@ final class BundleResourceLocatorSpec extends ObjectBehavior
         ThemeInterface $theme,
         BundleInterface $justBundle
     ): void {
-        $kernel->getBundle('JustBundle', false)->willReturn($justBundle);
+        $kernel->getBundle('JustBundle')->willReturn($justBundle);
 
         $justBundle->getName()->willReturn('JustBundle');
 
@@ -77,7 +77,7 @@ final class BundleResourceLocatorSpec extends ObjectBehavior
         BundleInterface $childBundle,
         BundleInterface $parentBundle
     ): void {
-        $kernel->getBundle('ParentBundle', false)->willReturn([$childBundle, $parentBundle]);
+        $kernel->getBundle('ParentBundle')->willReturn([$childBundle, $parentBundle]);
 
         $childBundle->getName()->willReturn('ChildBundle');
         $parentBundle->getName()->willReturn('ParentBundle');

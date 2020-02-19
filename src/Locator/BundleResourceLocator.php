@@ -32,9 +32,6 @@ final class BundleResourceLocator implements ResourceLocatorInterface
         $this->kernel = $kernel;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function locateResource(string $resourcePath, ThemeInterface $theme): string
     {
         $this->assertResourcePathIsValid($resourcePath);
