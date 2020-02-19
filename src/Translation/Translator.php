@@ -20,8 +20,9 @@ use Symfony\Component\Translation\Formatter\MessageFormatter;
 use Symfony\Component\Translation\Formatter\MessageFormatterInterface;
 use Symfony\Component\Translation\MessageSelector;
 use Symfony\Component\Translation\Translator as BaseTranslator;
+use Symfony\Contracts\Translation\LocaleAwareInterface;
 
-final class Translator extends BaseTranslator implements WarmableInterface
+final class Translator extends BaseTranslator implements WarmableInterface, LocaleAwareInterface
 {
     /** @var array */
     protected $options = [
@@ -189,5 +190,20 @@ final class Translator extends BaseTranslator implements WarmableInterface
             MessageSelector::class,
             is_object($messageFormatterOrSelector) ? get_class($messageFormatterOrSelector) : gettype($messageFormatterOrSelector)
         ));
+    }
+
+    public function getLocale(): string
+    {
+        return parent::getLocale();
+    }
+
+    /**
+     * @psalm-suppress MissingReturnType
+     *
+     * @param string $locale
+     */
+    public function setLocale($locale)
+    {
+        parent::setLocale($locale);
     }
 }
